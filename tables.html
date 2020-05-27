@@ -89,22 +89,12 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
 
-            <a class="collapse-item" href="">Paróquia (Sede/Matriz)</a>
-            <a class="collapse-item" href="">Comunidade São Pedro</a>
-            <a class="collapse-item" href="">Comunidade Santa Luzia</a>
-            <a class="collapse-item" href="">Comunidade Sagrada Familia </a>
+            <a class="collapse-item" href="tables.html">Paróquia (Sede/Matriz)</a>
+            <a class="collapse-item" href="tables.html">Comunidade São Pedro</a>
+            <a class="collapse-item" href="tables.html">Comunidade Santa Luzia</a>
+            <a class="collapse-item" href="tables.html">Comunidade Sagrada Familia </a>
           </div>
         </div>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Nav Item - Tables -->
-      <li class="nav-item active">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
       </li>
 
       <!-- Divider -->
@@ -224,10 +214,48 @@
             O ID é por Igreja, ou seja terá o ID01 da Paróquia, o ID 01 da Comunidade Santa Luzia e assim por diante!
           </p>
 
-          <!-- DataTales Example -->
+          <!-- Modal Add Dizimo -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Incluir
+            contribuição</button>
+          <br />
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">Dizimista:</label>
+                      <input type="text" class="form-control" id="recipient-name"
+                        placeholder="Nome do Dizimista com autocomplete">
+                      <br />
+                      <input type="text" class="form-control" id="recipient-name"
+                        placeholder="ID do Dizimista com autocomplete">
+                      <br />
+                      <input type="text" class="form-control" id="recipient-name" placeholder="Valor da contribuição">
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <!-- Modal Add Dizimo -->
+
+
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Tabela de Dizimistas</h6>
+
             </div>
 
             <div class="card-body">
@@ -515,7 +543,17 @@
 
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
-  <script src="js/dizimista/dizimista.js"></script>
+  <script>
+    $('#exampleModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) // Button that triggered the modal
+      var recipient = button.data('whatever') // Extract info from data-* attributes
+      // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+      // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+      var modal = $(this)
+      modal.find('.modal-title').text('Incluir Dizimo')
+      modal.find('.modal-body input').val(recipient)
+    })
+  </script>
 
 </body>
 
