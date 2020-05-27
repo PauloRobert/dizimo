@@ -3005,7 +3005,7 @@
 					attr( col.mData.filter, cell );
 				}
 				else {
-					// Depending on the `data` option for the columns the data can
+					// DePendentes on the `data` option for the columns the data can
 					// be read to either an object or an array.
 					if ( objectRead ) {
 						if ( ! col._setter ) {
@@ -6120,7 +6120,7 @@
 			sorting = settings.aaSorting = [ sorting ];
 		}
 	
-		// If appending the sort then we are multi-column sorting
+		// If apPendentes the sort then we are multi-column sorting
 		if ( append && settings.oFeatures.bSortMulti ) {
 			// Are we already doing some kind of sort on this column?
 			var sortIdx = $.inArray( colIdx, _pluck(sorting, '0') );
@@ -6840,7 +6840,7 @@
 	 * presenting the API class as an array like interface. The contents of the
 	 * array depend upon the actions requested by each method (for example
 	 * `rows().nodes()` will return an array of nodes, while `rows().data()` will
-	 * return an array of objects or arrays depending upon your table's
+	 * return an array of objects or arrays dePendentes upon your table's
 	 * configuration). The API object has a number of array like methods (`push`,
 	 * `pop`, `reverse` etc) as well as additional helper methods (`each`, `pluck`,
 	 * `unique` etc) to assist your working with the data held in a table.
@@ -10014,7 +10014,7 @@
 		 * DataTables can be instructed to load data to display in the table from a
 		 * Ajax source. This option defines how that Ajax call is made and where to.
 		 *
-		 * The `ajax` property has three different modes of operation, depending on
+		 * The `ajax` property has three different modes of operation, dePendentes on
 		 * how it is defined. These are:
 		 *
 		 * * `string` - Set the URL from where the data should be loaded from.

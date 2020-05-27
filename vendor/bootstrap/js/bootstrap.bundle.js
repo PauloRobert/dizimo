@@ -2302,7 +2302,7 @@
       height: popperRect.height
     };
 
-    // depending by the popper placement we have to compute its offsets slightly differently
+    // dePendentes by the popper placement we have to compute its offsets slightly differently
     var isHoriz = ['right', 'left'].indexOf(placement) !== -1;
     var mainSide = isHoriz ? 'top' : 'left';
     var secondarySide = isHoriz ? 'left' : 'top';
@@ -2467,7 +2467,7 @@
    * @method
    * @memberof Popper.Utils
    * @argument {String} property (camelCase)
-   * @returns {String} prefixed property (camelCase or PascalCase, depending on the vendor prefix)
+   * @returns {String} prefixed property (camelCase or PascalCase, dePendentes on the vendor prefix)
    */
   function getSupportedPropertyName(property) {
     var prefixes = [false, 'ms', 'Webkit', 'Moz', 'O'];

@@ -754,7 +754,7 @@ var Converter = function() {
 };
 
 /* Either get the values for a space or
-  set the values for a space, depending on args */
+  set the values for a space, dePendentes on args */
 Converter.prototype.routeSpace = function(space, args) {
    var values = args[0];
    if (values === undefined) {

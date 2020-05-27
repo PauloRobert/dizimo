@@ -168,7 +168,7 @@
   var DEFAULT_REPLACEMENT_CLASS = 'svg-inline--fa';
   var DATA_FA_I2SVG = 'data-fa-i2svg';
   var DATA_FA_PSEUDO_ELEMENT = 'data-fa-pseudo-element';
-  var DATA_FA_PSEUDO_ELEMENT_PENDING = 'data-fa-pseudo-element-pending';
+  var DATA_FA_PSEUDO_ELEMENT_Pendentes = 'data-fa-pseudo-element-Pendentes';
   var DATA_PREFIX = 'data-prefix';
   var DATA_ICON = 'data-icon';
   var HTML_CLASS_I2SVG_BASE_CLASS = 'fontawesome-i2svg';
@@ -305,7 +305,7 @@
     loaded ? setTimeout(fn, 0) : functions.push(fn);
   }
 
-  var PENDING = 'pending';
+  var Pendentes = 'Pendentes';
   var SETTLED = 'settled';
   var FULFILLED = 'fulfilled';
   var REJECTED = 'rejected';
@@ -431,7 +431,7 @@
   }
 
   function fulfill(promise, value) {
-    if (promise._state === PENDING) {
+    if (promise._state === Pendentes) {
       promise._state = SETTLED;
       promise._data = value;
       asyncCall(publishFulfillment, promise);
@@ -439,7 +439,7 @@
   }
 
   function reject(promise, reason) {
-    if (promise._state === PENDING) {
+    if (promise._state === Pendentes) {
       promise._state = SETTLED;
       promise._data = reason;
       asyncCall(publishRejection, promise);
@@ -487,7 +487,7 @@
 
   P.prototype = {
     constructor: P,
-    _state: PENDING,
+    _state: Pendentes,
     _then: null,
     _data: undefined,
     _handled: false,
@@ -1919,7 +1919,7 @@
     }
 
     if (candidates.length > 0) {
-      hclAdd('pending');
+      hclAdd('Pendentes');
       hclRemove('complete');
     } else {
       return;
@@ -1948,7 +1948,7 @@
         perform(resolvedMutations, function () {
           hclAdd('active');
           hclAdd('complete');
-          hclRemove('pending');
+          hclRemove('Pendentes');
           if (typeof callback === 'function') callback();
           mark();
           resolve();
@@ -1969,9 +1969,9 @@
   }
 
   function replaceForPosition(node, position) {
-    var pendingAttribute = "".concat(DATA_FA_PSEUDO_ELEMENT_PENDING).concat(position.replace(':', '-'));
+    var PendentesAttribute = "".concat(DATA_FA_PSEUDO_ELEMENT_Pendentes).concat(position.replace(':', '-'));
     return new picked(function (resolve, reject) {
-      if (node.getAttribute(pendingAttribute) !== null) {
+      if (node.getAttribute(PendentesAttribute) !== null) {
         // This node is already being processed
         return resolve();
       }
@@ -1999,7 +1999,7 @@
         // already done so with the same prefix and iconName
 
         if (iconName && (!alreadyProcessedPseudoElement || alreadyProcessedPseudoElement.getAttribute(DATA_PREFIX) !== prefix || alreadyProcessedPseudoElement.getAttribute(DATA_ICON) !== iconIdentifier)) {
-          node.setAttribute(pendingAttribute, iconIdentifier);
+          node.setAttribute(PendentesAttribute, iconIdentifier);
 
           if (alreadyProcessedPseudoElement) {
             // Delete the old one, since we're replacing it with a new one
@@ -2031,7 +2031,7 @@
             element.outerHTML = abstract.map(function (a) {
               return toHtml(a);
             }).join('\n');
-            node.removeAttribute(pendingAttribute);
+            node.removeAttribute(PendentesAttribute);
             resolve();
           }).catch(reject);
         } else {

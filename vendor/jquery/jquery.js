@@ -3280,7 +3280,7 @@ jQuery.Callbacks = function( options ) {
 			// Enforce single-firing
 			locked = locked || options.once;
 
-			// Execute callbacks for all pending executions,
+			// Execute callbacks for all Pendentes executions,
 			// respecting firingIndex overrides and runtime changes
 			fired = firing = true;
 			for ( ; queue.length; firingIndex = -1 ) {
@@ -3386,7 +3386,7 @@ jQuery.Callbacks = function( options ) {
 			},
 
 			// Disable .fire and .add
-			// Abort any current/pending executions
+			// Abort any current/Pendentes executions
 			// Clear all callbacks and values
 			disable: function() {
 				locked = queue = [];
@@ -3399,7 +3399,7 @@ jQuery.Callbacks = function( options ) {
 
 			// Disable .fire
 			// Also disable .add unless we have memory (since it would have no effect)
-			// Abort any pending executions
+			// Abort any Pendentes executions
 			lock: function() {
 				locked = queue = [];
 				if ( !memory && !firing ) {
@@ -3494,7 +3494,7 @@ jQuery.extend( {
 				[ "reject", "fail", jQuery.Callbacks( "once memory" ),
 					jQuery.Callbacks( "once memory" ), 1, "rejected" ]
 			],
-			state = "pending",
+			state = "Pendentes",
 			promise = {
 				state: function() {
 					return state;
@@ -3812,7 +3812,7 @@ jQuery.extend( {
 				!remaining );
 
 			// Use .then() to unwrap secondary thenables (cf. gh-3000)
-			if ( master.state() === "pending" ||
+			if ( master.state() === "Pendentes" ||
 				isFunction( resolveValues[ i ] && resolveValues[ i ].then ) ) {
 
 				return master.then();
@@ -3884,7 +3884,7 @@ jQuery.extend( {
 	// Handle when the DOM is ready
 	ready: function( wait ) {
 
-		// Abort if there are pending holds or we're already ready
+		// Abort if there are Pendentes holds or we're already ready
 		if ( wait === true ? --jQuery.readyWait : jQuery.isReady ) {
 			return;
 		}
@@ -9373,7 +9373,7 @@ jQuery.extend( {
 			jqXHR.setRequestHeader( "Content-Type", s.contentType );
 		}
 
-		// Set the Accepts header for the server, depending on the dataType
+		// Set the Accepts header for the server, dePendentes on the dataType
 		jqXHR.setRequestHeader(
 			"Accept",
 			s.dataTypes[ 0 ] && s.accepts[ s.dataTypes[ 0 ] ] ?
